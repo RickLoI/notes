@@ -1,0 +1,21 @@
+\documentclass{subfiles}
+\begin{document}
+    Our last section focuses on \(\np\)-completeness, specifically we focus on the \gls{tsp}.
+        Although we assume the reader to be familiar with \(\np\)-problems and graph theory,
+        we briefly recall what the TSP is about.
+
+    Let \(G = (V, E)\) be a graph. We say that \(G\) has a \emph{Hamilonian cycle} if 
+        there exist a close path \(P\) starting at node \(x\) and ending at \(x\) such that,
+        all the vertex in \(G\) are in \(P\) and each is encountered only once.
+        In other words, \(G\) has an Hamilonian cycle if we can reach each node once,
+        without crossing the same one twice.
+
+    The remainder of this section is structured as follow: 
+        first we introduce the notion of approximation algorithms in the context of \(\np\)-problems,
+        we then introduce an approximation algorithm for the TSP,
+        and we conclude the section by showing that the generalized TSP admits no polynomial-time 
+        solution, unless \(\mathcal{P} = \np\).
+
+    \subsection{Approximation algorithms}
+    \subfile{../sub/5.1 - Approximation algorithms}
+\end{document}

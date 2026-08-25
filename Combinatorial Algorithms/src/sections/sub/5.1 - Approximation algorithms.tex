@@ -1,0 +1,30 @@
+\documentclass{subfiles}
+\begin{document}
+    \(\np\)-complete problems are too important to be merely ignored because a polynomial solution 
+        may not exist. It is for this reason that in most cases an algorithm that computes 
+        a near-optimal solution in polynomial time is good enough.
+        Still, we need a way to determine how far such an algorithm is from finding the optimal solution.
+        A simple solution is considering the approximation ratio \(\rho(n)\).
+
+    Let \(\a\) be an approximation algorithm for a \(\np\)-complete problem,
+        and let \(C\) be the cost of the solution found by \(\a\).
+        If \(C^{*}\) is the cost of the optimal solution,
+        we say that \(\a\) has an approximation ratio \(\rho(n)\) if 
+        \[
+            \max \left\lparen \frac{C}{C^{*}}, \frac{C^{*}}{C} \right\rparen \le \rho(n)
+        \]
+        An approximation algorithm with approximation ratio \(\rho(n)\) is also called 
+        \emph{\(\rho(n)\)-approximation algorithm}.
+
+    In some cases we can find approximation algorithms that achive better approximation 
+        at the cost of more execution time. This kind of algorithms deserve a name on its own.
+        We say that an algorithms is an \emph{approximation scheme} if,
+        for any \(\epsilon > 0\), the scheme is a \((1 + \epsilon)\)-approximation algorithm.
+        We say that an approximation scheme is a \emph{polynomial-time approximation scheme} if 
+        for all \(\epsilon > 0\), the schema runs in polynomial time in the size \(n\) of its input.
+        We say that an approximation scheme is a \emph{fully} polynomial-time approximation algorithm 
+        if it rans in polynomial in both \(\sfrac{1}{\epsilon}\) and \(n\) of its input.
+    
+    \subsubsection{TSP: an approximation under the triangular inequality}
+    \subfile{../subsub/5.1.1 - TSP with triangular inequality}
+\end{document}
