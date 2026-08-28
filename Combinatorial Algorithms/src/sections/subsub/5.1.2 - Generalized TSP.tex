@@ -1,0 +1,46 @@
+\documentclass{subfiles}
+\begin{document}
+    We now consider the case in which the cost function \(c\) 
+        does not satisfy the triangular inequality,
+        and we show that no algorithm that approximate TSP can have polynomial time, 
+        unless \(\mathcal{P} = \np\),
+
+    \begin{theorem*}
+        Unless \(\mathcal{P} = \np\), then for any \(\rho \ge 1\),
+        there exist no polynomial time algorithm with approximation ratio \(\rho\)
+        for the generalized traveling-salesman problem.
+    \end{theorem*}
+
+    \begin{proof*}
+        By the sake of contraddiction, assume that there exists an algorithm \(\mathcal{A}\)
+            with approximation ratio \(\rho\) that approximate TSP. Then we can use \(\mathcal{A}\)
+            to solve an instace of the Hamiltonian cycle problem in polynomial time.
+
+        Let \(G = (V, E)\) be an instace of the Hamiltonian cycle problem.
+            We transform the instace of the Hamiltonian cycle problem into one for TSP as follow:
+            let \(G' = (V, E')\) where \(E'\) is obtained from \(E\) completing the graph;
+            that is:
+            \[
+                E' = \set{(u, v)}[u, v \in V \land u \ne v].
+            \]
+        To each edge assign the cost 
+        \[
+            c(u, v) = \begin{cases}
+                1 \text{ if } (u, v) \in E, \\
+                \rho \abs{V} + 1 \text{ otherwise.}
+            \end{cases}
+        \]
+        Now, if consider the traveling-salesman problem for \((G', c)\);
+            if \(G\) has a cycle \(H\), then each edge in \(H\) has cost of \(1\),
+            and so \((G', c)\) contains a tour of cost \(\abs{V}\).
+            Viceversa, if \(G\) has no cycle, any tour in \((G', c)\) must use some edge not in \(E\).
+            But each tour that uses a edge not in \(E\) has a cost of at least 
+            \[
+                (\rho \abs{V} + 1) + (\abs{V} - 1) = \rho\abs{V} + \abs{V} > \rho\abs{V}.
+            \]
+        It follows easily that if \(G\) contains a cycle, then \(\mathcal{A}\) returns it.
+            Viceversa, if \(G\) does not contain a cycle, \(\mathcal{A}\) returns a cycle of 
+            cost more than \(\rho\abs{V}\).
+    \end{proof*}
+
+\end{document}

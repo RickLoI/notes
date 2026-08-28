@@ -1,4 +1,57 @@
 \documentclass{subfiles}
 \begin{document}
-    %
+    Let us consider an instance of the TSP in which the cost function is such that the 
+        triangular inequality holds; that is, given the edges \((u, w), (w, v)\) and \(u, v)\)
+        it holds 
+        \[
+            c(u, w) + c(w, v) \le c(u, v).
+        \]
+        We show that the following algorithm solves TSP and 
+        that is a 2-approximation algorithm.
+
+    The idea is the following: let \(G = (V, E)\) be a complete graph,
+        and let \(T\) be the spanning tree with root \(r \in V\). 
+        Then, if \(H\) is the list of vertexes encountered in the pre-order view of \(T\),
+        we compute a tour by simply considering the edges between any two consectutive 
+        nodes in \(H\). We give the pseudocode in \autoref{proc:approx-tsp}.
+
+        \subfile{../TikZ/Procedure - Approximate TSP}
+
+    \begin{theorem*}
+        \autoref{proc:approx-tsp} is a polynomial 2-approximate algorithm for the 
+            traveling-salesman problem.
+    \end{theorem*}
+
+    \begin{proof*}
+        Let \(H^{*}\) be an optimal tour for the given graph.
+            From \(H^{*}\), we obtain a spanning tree \(T\) by deliting edges from the tour.
+            Hance the algorithm provides a lower bound for an optimal tour:
+            \[
+                c(T) \le c(H^{*}).
+            \]
+            If we denote by \(W\) a full walk on \(T\),
+                and note that such walk traverses each node exactly twice,
+                one has that 
+            \[
+                c(W) = 2c(T).
+            \]
+            Combining the two equations, it follows:
+            \[
+                c(W) \le 2c(H^{*}).
+            \]
+
+        Now, \(W\) may not be a tour. Thankfully we can employ the triangular inequality to 
+            to delete a visit to a node in \(W\). Repeating the procedure,
+            we can remove all but the first visit to each vertex.
+            This ordering is the same as the pre-order visit of \(T\).
+            Let \(H\) be such a ordering. Since \(H\) is obtained from \(W\),
+            it follows
+            \[
+                c(H) \le c(W),
+            \]
+            hence, we get 
+            \[
+                c(H) \le 2c(H^{*})
+            \]
+    \end{proof*}
 \end{document}

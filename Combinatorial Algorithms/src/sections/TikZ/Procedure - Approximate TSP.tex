@@ -1,0 +1,11 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{Approximate-TSP($G, c$)}\label{proc:approx-tsp}
+        \nl Select a node $r$ to be the ``root'' ot the spanning tree.\DontPrintSemicolon\;
+        \nl Use prim algorithm to compute the spanning tree $T$ for $G$ with root $r$.;\DontPrintSemicolon\;
+            \tcc{Run Prim-Alg($G, c, r$)}
+        \nl Let $H$ be the list of node nodes encountered in the pre-order view of $T$.\DontPrintSemicolon\;
+        \nl Return the Hamiltonian cycle $H$
+    \end{procedure}
+\end{document}
