@@ -1,0 +1,75 @@
+\documentclass{subfiles}
+\begin{document}
+    To give the most accessible idea of what each of groups, rings and fields are,
+        we can think of this as sets on which some operations are defined; 
+        in addition, such operations must satisfy some properties.
+
+    Formally speaking, given a set \(G\) and a binary operation \(* : G \to G\)\footnotemark,
+        we say that \((G, +)\) forms a group if all of the following hold.
+        \begin{enumerate}
+            \item There exists an element \(\unit_{G}\) such that \( a * \unit_{G} = \unit_{G} * a = a,
+                \forall a \in G\). In other words, \(G\) must have a neutral element.
+
+            \item For all \(a \in G\) there must exists \(a^{-1}\) such that 
+                \(a * a^{-1} = a^{-1} * a = \unit_{G}\). 
+                Meaning that each element must have an inverse.
+
+            \item The operation \(*\) must be associative.
+                That is, for all \(a, b, c \in G\) it holds \( a * (b * c) = (a * b) * c\).
+        \end{enumerate}
+        Additionally, if \(*\) is commutative, i.e., \(a * b = b * a\),
+        we say that \((G, *)\) is an abelian (or commutative) group.
+
+    \footnotetext{
+        Note that the use of \(*\) for the binary operation should not fool the reader in 
+        to thinking it as the well known multiplication. 
+        Instead, it is a placeholder for any well defined operation.
+    }
+
+    As for sets, groups may contain some smaller groups, to which we refer to as sub-groups.
+        Formally, given \((G, *)\) a group, we say that \(H \subseteq G\) forms a group under 
+        \(*\) if \(\unit_G \in H\) and \((H, *)\) forms a group.
+        
+    Beyond the set-theoretic relation, groups and subgroups are connected by a much more 
+        foundamental relation, that regarding their size. This result,
+        known in the literature as \emph{Lagrange's theorem for groups},
+        states that a finite group \(G\), i.e. a group with finitely many elements,
+        can only have subgroups \(H\) such that the number of elements in \(H\) 
+        divides the number of elements in \(G\).
+        We Formally state Lagrange's theorem below.
+        \begin{theorem*}[Lagrange's theorem for groups]
+            Let \((G, *)\) be a group, with \(\abs{G} < \infty\). Then, 
+                any subgroups \((H, *)\) of \((G, *)\) is such that
+                \[
+                    \abs{H} \vert \abs{G}.
+                \]
+        \end{theorem*}
+
+    Although groups have some nice properties as the whole group-theory shows,
+        more often than not we need something more powerful.
+        To provide for this need, some more advanced structures were developed,
+        the simplest of which is known as \emph{ring}.
+
+    To undestand rings, we can see them as an extention of groups by an additional operation.
+        More precisely, we say that \(R, +, *\) is a ring if 
+        \begin{enumerate}
+            \item \((R, +)\) form an abelian group.
+            \item \(*\) is associative. That is, for all \(a, b, c \in R\) it holds 
+                \(a * (b * c) = (a * b) * c\).
+            \item \(*\) distributes over \(+\). In other words,
+                if for all \(a, b, c \in R\) we have that \(a * (b + c) = a * b + a * c\).
+        \end{enumerate}
+        
+    Rings can sometimes satisfy some additional properties,
+        depending on which they take different names.
+        These additional properties are the following.
+        \begin{enumerate}
+            \item There exists a neutral element for \(*\).
+            \item \(*\) is commutative.
+            \item Each element in \(R\) as inverse with respect to \(*\).
+        \end{enumerate}
+        A ring with all these additional properties is called \emph{field}.
+        In these notes we denote a generic field by either \(\F\) or \(\K\),
+        while finite fields will be denoted by \(\gf(p)\), 
+        where \(p\) is usually a prime.
+\end{document}
