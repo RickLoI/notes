@@ -1,0 +1,20 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{algorithm}
+        \caption{Euclidean algorithm}\label{algo:extended-euclidean}
+        \KwIn{Two integers \(a\) and \(b\), with \(a > b\).}
+        \KwOut{The greatest GCD of \(a\) and \(b\), and the Bézout coefficients.}
+        Compute the sequences $\set{r_{i}}_{i \in \nset},
+            \set{r_{i}}_{i \in \nset}, \set{t_{i}}_{i \in \nset}$ as follow: \DontPrintSemicolon\;
+        \Indp$r_{0} \leftarrow a, r_{1} \leftarrow b$ \DontPrintSemicolon\;
+        $s_{0} \leftarrow 1, s_{1} \leftarrow 0$ \DontPrintSemicolon\;
+        $t_{0} \leftarrow 0, t_{1} \leftarrow 1$ \DontPrintSemicolon\;
+        \While{$r_{k} \ge 1$}{
+            $r_{k + 1} \leftarrow r_{k - 1} - q_{i}r_{k}$\DontPrintSemicolon\;
+            $s_{k + 1} \leftarrow s_{k - 1} - q_{i}s_{k}$\DontPrintSemicolon\;
+            $t_{k + 1} \leftarrow t_{k - 1} - q_{i}t_{k}$\DontPrintSemicolon\;
+        }
+        \Indm\Return the last computed $r_{k}$ as GCD and $s_{k}, t_{k}$ as Bézout coefficients.
+    \end{algorithm}
+\end{document}
+

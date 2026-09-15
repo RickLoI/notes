@@ -1,0 +1,54 @@
+\documentclass{subfiles}
+\begin{document}
+    Most of the groups and ring will be using in these notes,
+        rise naturally from the notion of congruence modulo \(n\),
+        where \(n\) is an integer. These groups and rings will be denoted by \(\zset_{n}\),
+        or by \(\zset_{p}\) if \(n = p\) is prime.
+
+    But what is congruence? Put in simple words, given two integers \(a, b\),
+        we say that \(a \text{ is congruent } b\) modulo \(n\), 
+        if we can write \(a\) as the sum of \(b\) and some multiple of \(n\).
+        That is, 
+        \[
+            a \equiv b \mod n \iff \exists k \in \zset : a = b + kn.
+        \]
+        Using the above definition, we get
+        \[
+            \zset_{n} = \set{m \in \nset}[m < n].
+        \]
+        For instance, \(\zset_{11} = \set{0, 1, \ldots, 9, 10}\).
+        Sometimes when dealing with rings we will write \(\zset_{n}^{*}\) to mean the group/ring
+        \(\zset_{n} \setminus \set{0}\).
+
+    In most of the algorithms we will discuss,
+        we often make use of the \(\gcd\) between two given integers.
+        Here we first recall what GCD is, and provide two algorithm to compute it.
+
+    Let \(a, b\) be two integers.
+        We say that an integer \(d\) is the GCD of \(a, b\) if the following hold:
+        \begin{equation}\label{eq:gcd-definition}
+            d \vert a \text{ and } d \vert b 
+        \end{equation}
+        and for any other integer \(d'\) such that \Cref{eq:gcd-definition} holds,
+        we have
+        \[
+            d' \vert d.
+        \]
+        In other words, the \(d\) is the GCD of \(a, b\) if any integer that divides \(a, b\)
+        also divides \(d\).
+
+    But how do we compute the GCD of two integers? A result in abstract algebra tells us
+        that we can compute \(d\) as the difference between some multiple of \(a\)
+        and some multiple of \(b\). This result is known as \emph{Bézout identity}.
+        More precisely Bézout identity states that there exists two integers \(\delta \text{ and } \epsilon\),
+        such that \(d = \gcd(a, b) = a\delta + b\epsilon\).
+        \(\delta \text{ and } \epsilon\) are called Bézout coefficients.
+
+    In practise we compute the GCD by means of the Euclidean algorithm.
+        Two variants exists, a simple one which returns just the GCD,
+        and one which returns both the GCD and the Bézout coefficients.
+        Here we present both, although for our needs the latter is preferred.
+
+        \subfile{../TikZ/Algorithm 1 - Simple Euclidean algorithm}
+        \subfile{../TikZ/Algorithm 2 - Extended Euclidean algorithm}
+\end{document}

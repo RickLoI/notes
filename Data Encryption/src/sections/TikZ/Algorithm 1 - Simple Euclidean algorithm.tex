@@ -1,0 +1,14 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{algorithm}
+        \caption{Euclidean algorithm}\label{algo:simple-euclidean}
+        \KwIn{Two integers \(a\) and \(b\), with \(a > b\).}
+        \KwOut{The greatest GCD of \(a\) and \(b\).}
+        Compute the sequence $\set{r_{i}}_{i \in \nset}$ as follow:
+            $r_{0} \leftarrow a, r_{1} \leftarrow b$ \DontPrintSemicolon\;
+        \Indp\While{$r_{k} \ge 1$}{
+            $r_{k + 1} \leftarrow r_{k - 1} - q_{i}r_{k}$
+        }
+        \Indm\Return the last computed $r_{k}$
+    \end{algorithm}
+\end{document}
