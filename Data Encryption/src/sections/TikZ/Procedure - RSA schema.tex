@@ -1,0 +1,23 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{RSA()}\label{proc:RSA-schema}
+        \nl $\B$ chooses two prime numbers $p \text{ and } q$ with similar size,
+            and computes $n = p * q$ and $\lambda = \lcm(p - 1, q - 1)$.
+            Additionally $\B$ chooses $\epsilon$ such that $\gcd(\lambda, \epsilon) = 1$.
+            The pair $(n, \epsilon)$ represents $\B$'s public key.
+            \DontPrintSemicolon\;
+
+        \nl $\A$ cyphers its message $m$, which is assumed to be an integer,
+            by computing $c = m^{\epsilon} \mod[n]$, and sends it to $\B$.
+            \DontPrintSemicolon\;
+
+        \nl To retrieve $m$, $\B$ computes $m = c^{d} \mod[n]$,
+            where $d$ is the Bézout coeffient of $\epsilon$ in the identity $1 = d\epsilon + \mu\lambda$.
+            \DontPrintSemicolon\;
+
+        \nl If $\E$ gets to $c$, although has access to $\B$'s public key,
+            can't possibly retrieve $m$. The only possibility is for $\E$ to factor $n$,
+            which is a well known hard problem.
+    \end{procedure}
+\end{document}

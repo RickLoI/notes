@@ -1,0 +1,39 @@
+\documentclass{subfiles}
+\begin{document}
+    Taking the name from the three researchers who developed it, \citeauthor{RivestSA1977},
+        RSA is one of the simplest, yet solid\footnotemark algorithm in cryptography.
+
+    The idea behind RSA is the following: we choose two prime numbers \(p\) and \(q\)
+        of similar size, i.e., their binary representation uses approximately the same numebr of bits,
+        we compute their product \(n\) and use this value to cypher our message. 
+        In \autoref{proc:RSA-schema}, we give a more detailed description of the RSA algorithm.
+
+        \subfile{../TikZ/Procedure - RSA schema}
+
+    \footnotetext{
+        Here by ``solid'' we refer to the fact that cracking RSA is somewhat unfeasable.
+    }
+
+    What we are left with is showing that Line 3 of \autoref{proc:RSA-schema},
+        does in fact return \(m\). First observe that 
+        \[
+            c^{d} = (m^{e}) = m^{ed}.
+        \]
+        Using Bézout identity, we get 
+        \[
+            m^{ed} = m^{1 - \mu\lambda} = m * m^{-\mu\lambda} = m * (m^{\lambda})^{-\mu}.
+        \]
+    
+    Recall that by definition \(\lambda = \lcm(p - 1, q - 1)\),
+        hence there exists \(r, s\) such that \(\lambda = (p -1)r = (q - 1)s\).
+        By using Fermat's theorem, which roughuly states that \(x^{p} \equiv x \mod\),
+        we get
+        \[
+            m^{\lambda} = m^{(p -1)r} = (m^{(p - 1)})^{r} = 1^{r} = 1 \mod.
+        \]
+        By the same logic, we get that \(m^{\lambda} = 1 \mod[q]\).
+        Therefore,
+        \[
+            c^{d} = m^{ed} = (m^{\lambda})^{-\mu} = m * 1 \mod = m * 1 \mod[q] = m.
+        \]
+\end{document}

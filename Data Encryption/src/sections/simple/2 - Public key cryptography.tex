@@ -1,0 +1,30 @@
+\documentclass{subfiles}
+\begin{document}
+    Until the first years of the '70s cryptography was mainly using a symmetric approach;
+        that is, sender and receiver had the same encryption/decryption key to cypher their messages.
+        But how should the key be choosed in the first place?
+        This and other reasons, thanks to the contribution of \citeauthor{DiffieH1976},
+        this symmetric schema was soon replaced by what is known as \emph{public key} cryptography.
+
+    Let us denote by \(\A\) and \(\B\) the two entities involved in the communication,
+        and let \(\E\) be a malicious entity trying to intercept the communication.
+        Any public key schema follows the same principle:
+        \begin{enumerate}
+            \item \(\B\) chooses a function \(f\) such that, apart for \(\B\),
+                its inverse is hard to compute.
+            \item Let \(m\) be the message \(\A\) wants to send to \(\B\);
+                \(\A\) computes \(c = f(m)\) and transmits \(c\) to \(\B\).
+            \item Upon receiving \(c\), \(\B\) who knows how to compute \(f^{-1}\),
+                computes \(m = f^{-1}(c) = f^{-1}(f(m))\).
+            \item Even if \(\E\) is able to get to \(c\), 
+                it can't retrive \(m\) since \(f^{-1}\) is hard to compute.
+        \end{enumerate}
+
+    The remainder of this section will focus on two of the most commonly used public key scemas,
+        namely RSA and Diffie-Hellman. In \Cref{sec:crypto-on-elliptic-curves}, we describe 
+        how RSA and Diffie-Hellman can be implemented using elliptic curves.
+
+    \subsection{RSA}
+    \subfile{../sub/2.1 - RSA}
+        
+\end{document}
