@@ -1,0 +1,18 @@
+\documentclass{subfiles}
+\begin{document}\label{sec:diffie-hellman}
+    Born by the collaboration between \citeauthor{DiffieH1976}, 
+        the Diffie-Hellman key exchange protocol was the first public key exchange algorithm.
+        Roughuly speaking the algorithm is the following: 
+        we select a prime number \(p\) and consider and choose an element \(\gamma \in \gf_{p}\),
+        both parties, in our case \(\A \text{ and } \B\), 
+        choose a private key, let these be \(a\) for \(\A\) and \(b\) for \(\B\),
+        and compute the public key by taking the \(a\)-th (\(b\)-th resp.) power of \(\gamma\).
+
+    A more detailed description of the algorithm is shown in \autoref{proc:DH-exchange}.
+        \subfile{../TikZ/Procedure - Diffie-Hellman exchange}
+
+    As stated, Diffie-Hellman is more a public key exchange protocol rather then an encryption schema;
+        though, as described in the next section, when combined with Vernam cyphering algorithm,
+        it allows to build a solid public key encryption schema known as the \emph{ElGamal} encryption
+        schema.
+\end{document}

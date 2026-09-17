@@ -1,0 +1,17 @@
+\documentclass{subfiles}
+\begin{document}   
+    As anticipated in \Cref{sec:diffie-hellman},
+        the ElGamal encryption schema is based on the Diffie-Hellman algorithm to echange the key,
+        what is left is undestanding how the message is encrypted/decrypted.
+
+    Using the same notation as before, the sender, which we assume to be \(\A\),
+        computes \(c = \kappa_{AB} * m\) and sends it to \(\B\),
+        where \(m\) is assumed to be an integer.
+        On the recieving side, \(\B\) retrives \(m\) by computing \(m = \kappa_{AB}^{-1} * c\).
+        The question is, how is \(\kappa_{AB}^{-1}\) obtained? 
+        To answer this question observe that \(\gcd(\kappa_{AB}, p) = 1\),
+        meaning that we can use Bézout's identity to find \(x \text{ and } y\) such that \(1 = \kappa_{AB}x + py\).
+
+    In \autoref{proc:ElGamal} we give the complete algorithm.
+        \subfile{../TikZ/Procedure - ElGamal}
+\end{document}

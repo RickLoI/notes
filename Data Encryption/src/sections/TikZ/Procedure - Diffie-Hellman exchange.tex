@@ -1,0 +1,21 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{Diffie-Hellman-Key-Exchange()}\label{proc:DH-exchange}
+        \nl Let $\T$ be a trusted third party. 
+            $\T$ chooses a prime number $p$ and chooses an element $\gamma \in \gf_{p}$.
+            \DontPrintSemicolon\;
+
+        \nl Consider $\B$; it chooses an integer $b$ and computes $\beta \equiv \gamma^{b} \mod$,
+            which would represent its public key.
+            In the same manner $\A$ computes its public key $\alpha \equiv \gamma^{a} \mod$.
+            \DontPrintSemicolon\;
+
+        \nl Both $\A$ and $\B$ can compute the same private key $\kappa_{\A\B} \equiv \beta^{a} \mod$, 
+            since $\beta^{a} = \alpha^{b}$.
+            \DontPrintSemicolon\;
+
+        \nl Assuming $\E$ intercepts either of $\alpha$ and $\beta$,
+            it won't be able to retrive $\kappa_{\A\B}$ since $a$ and $b$ are unknown.
+    \end{procedure}
+\end{document}

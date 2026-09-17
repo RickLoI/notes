@@ -1,0 +1,21 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{ElGamal()}\label{proc:ElGamal}
+        \nl By using \autoref{proc:DH-exchange}, let $\A$ and $\B$ compute their public keys 
+            $\alpha$ and $\beta$, and the secrete key $\kappa_{AB}$.
+            \DontPrintSemicolon\;
+
+        \nl Let $m$ be an integer that represents the message $\A$ wants to send to $\B$.
+            $\A$ computes $c = \kappa_{AB} * m$ and sends it to $\B$.
+            \DontPrintSemicolon\;
+
+        \nl Recieving $c, \B$ first computes $\kappa_{AB}^{-1}$ solving Bézout's identity,
+            then retrives $m = \kappa_{AB}^{-1} * c$.
+            \DontPrintSemicolon\;
+
+        \tcc{On the attacker side...}
+        \nl Even if $\E$ obtains $c$, since it has no access to $\kappa_{AB}$,
+            retriving $m$ is impossible.
+    \end{procedure}
+\end{document}

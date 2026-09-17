@@ -1,0 +1,18 @@
+\documentclass{subfiles}
+\begin{document}
+    Now that we have seen a couple of public key encryption algorithm,
+        a question should pop inside the reader's head:
+        what garantees do we have about these algorithms?
+    
+    It should come to no surprise that the answer is given by math.
+        Precisely, by the hardness of the problems underlying these algorithms.
+        For instance, the security of RSA is given by the hard problem of integers factorization,
+        which asks us, given an integer \(n\), to find its factorization into primes.
+        The Diffie-Hellman algorithm, and therefore ElGamal,
+        are based on the \emph{discrete algorithm} problem,
+        which roughuly asks, given and integer \(\alpha\), 
+        to find \(a\) such that \(\alpha \equiv \gamma^{a} \mod\), where \(\gamma \text{ and } p\) are known.
+
+    These we presented are just a couple of several public key encryption algorithm.
+        The interested reader can easely find a whole literature out there.
+\end{document}
