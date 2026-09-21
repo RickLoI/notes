@@ -1,0 +1,42 @@
+\documentclass{subfiles}
+\begin{document}
+    Projective spaces are deeply rooted in art,
+        as these were implicitly when dealing with perspective.
+        As it turns out,
+        perspective is nothing else but a consequence of how the projective space works.
+
+    Formally speaking, an \(n\)-dimensional projective space over a field \(\K\) is defined 
+        as the set of non-empty \emph{rays} \(\mathbf{v} \in \K^{n + 1}\).
+        More precisely 
+        \[
+            \mathbb{P}^{n}(\K) = \set{P = \iprod{\mathbf{v}}}[\mathbf{0} \ne \mathbf{v}  \in \K^{n + 1}],
+        \]
+        where\(\mathbf{v} = [x_{0}, \ldots, x_{n}], x_{i} \in \K\).
+
+    Points in \(\mathbb{P}^{n}(\K)\) are represented using two types of coordinates:
+        \begin{enumerate}
+            \item \emph{homogeneous} coordinates, by which a point \(Q\) differs from \(P\)
+                if and only if \(Q \ne \lambda P\). In other words,
+                using homogeneous coordinates,
+                all points that differ by a multiplicative constant represent the same point.
+
+            \item \emph{non-homogeneous} coordinates, by which \(P\) is written as 
+                \[ P = \begin{cases}
+                    [1, \sfrac{x_{1}}{x_{0}}, \ldots, \sfrac{x_{n}}{x_{0}}] \text{ if } x_{0} \ne 0, \\
+                    [0, x_{1}, \ldots, x_{n}] \text{ if } x_{0} = 0.
+                \end{cases}\]
+        \end{enumerate}
+        In the latter case, we say that \(P\) is proper (or affine) point, if \(x_{0} \ne 0\),
+        we say that it's an improper point (or a point at infinity) if \(x_{0} = 0\).
+
+    Our discussion on elliptic curves will involve points in \(\mathbb{P}^{2}(\K)\),
+        and we mainly use the non-homogeneous coordinates system.
+        For this reason, to ease the notation a bit, 
+        we write \(P = [1, \sfrac{x_{1}}{x_{0}}, \sfrac{x_{2}}{x_{0}}]\) as
+        \(P = [1, x, y]\), where \(x = \sfrac{x_{1}}{x_{0}}\) and \(y = \sfrac{x_{2}}{x_{0}}\).
+        For point at infinity we write \(P\) as \(P = [0, X, Y]\).
+
+    % \subsubsection{homogeneous polynomials}
+    % \subfile{../subsub/3.1.1 - Homogeneous polynomials}
+        
+\end{document}
