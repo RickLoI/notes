@@ -1,41 +1,50 @@
 \documentclass{subfiles}
 \begin{document}
-    Evaluating polynomial in a projective space is tricky.
-        Take for instance the following polynomial:
+    Evaluating polynomial in a projective space is tricky, 
+        depending on the polynomial at hand.
+        Consider a polynomial in which its monomyals have different degrees,
+        take for instance the following:
         \[
             f(X) = f(x_{0}, x_{1}, x_{2}) = x_{0} - x_{2}x_{1}.
         \]
-        If we consider the points \(P = [2, -1, 1]\) and \(Q = 3P = [6, -3, 3]\),
-            which are equal under the homogeneous interpretation,
-            we get 
-            \[
-                f(P) = 2 - (-1 * 1) = 3 \text{ and } f(Q) = 6 - (-3 * 3) = 15.
-            \]
+        We would expect that, evaluating it a the points \(P = [2, -1, 1]\) and \(Q = 3P = [6, -3, 3]\),
+        which are equal under the homogeneous interpretation,
+        we would get the same result.
+        Instead we get 
+        \[
+            f(P) = 2 - (-1 * 1) = 3 \text{ and } f(Q) = 6 - (-3 * 3) = 15.
+        \]
 
-    Polynomials like \(f\) are said to be non-homogeneous. 
-        If instead we consider an homogeneous polynomial, we get 
+    As the reader might have understood, the issue is that polynomials like the one above 
+        are not homogeneous. That is, they don's satisfy the following equation:
         \[
             f(\lambda x_{0}, \lambda x_{1}, \lambda x_{2}) = \lambda^{d} f(x_{0}, x_{1}, x_{2})
         \]
         where \(d\) is the degree of the monomyals.
-        It follows that, if \(f(X) \text{ and } g(X)\) are two homogeneous polynomials,
-        then 
+    
+    Let \(f(X)\) and \(g(X)\) be two homogeneous polynomials,
+        and let \(d\) be the degree of their monomyals.
+        Let us see what happens when we compute \(F(X) = \sfrac{f(X)}{g(X)}\);
+        we get 
         \[
-            F(X) = \frac{f(X)}{g(X)}
+            F(\lambda X) = \frac{f(\lambda X)}{g(\lambda X)} = 
+                \frac{f(\lambda x_{0}, \lambda x_{1}, \lambda x_{2})}{g(\lambda x_{0}, \lambda x_{1}, \lambda x_{2})} = 
+                \frac{\lambda^{d} f(x_{0}, x_{1}, x_{2})}{\lambda^{d} g(x_{0}, x_{1}, x_{2})} = 
+                F(X).
         \]
-        does not depend by any proportionality factor.
+        That is, \(F(X)\) doesn't care about multiplicative constants.
 
-    Luckly for us, in the projective space, 
-        any polynomial can always be seen as the ratio of two homogeneous polynomials.
+    Luckly for us, in the projective space 
+        any polynomial can be seen as the ratio of two homogeneous polynomials.
         For instance, the following non-homogeneous polynomial
         \[
             F(x, y) = 3x^{2} -2y + 1 
         \]
-        we can transform it into an homogeneous polynomial as follow:
+        can be transformed into an homogeneous polynomial as follow:
         we replace \(x\) by \(\sfrac{x_{1}}{x_{0}}\) and \(y\) by \(\sfrac{x_{2}}{x_{0}}\),
         compute the lowest common multiple and obtain
         \[
-            3x^{2} - 2y + 1 \frac{3x_{1}^{2} - 2x_{0}x_{2} + x_{0}^{2}}{x_{0}^{2}},
+            F(x, y) = 3x^{2} - 2y + 1 = \frac{3x_{1}^{2} - 2x_{0}x_{2} + x_{0}^{2}}{x_{0}^{2}} = F(x_{0}, x_{1}, x_{2}).
         \]
-        which evaluated at both \(P\) and \(Q\) give the same value of \(\sfrac{3}{4}\).
+        Evaluating \(F(x_{0}, x_{1}, x_{2})\) at \(P\) and \(Q\), we get the same result of \(\sfrac{3}{4}\).
 \end{document}

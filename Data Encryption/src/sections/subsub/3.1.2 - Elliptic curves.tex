@@ -1,0 +1,69 @@
+\documentclass{subfiles}
+\begin{document}
+    Let \(p > 3\) be a prime number, and let \(\K = \gf(p^{n})\).
+        We call elliptic curve, a curve \(\mathcal{C} \in \mathbb{P}^{2}(\K)\) defined by an equation of the form
+        \[
+            x_{2}^{2}x_{0} = x_{1}^{3} + a x_{1}x_{0}^{2} + bx_{0}^{3}.
+        \]
+        In most cases we impose the condition \(4a + 27b \ne 0\) 
+        as a way to avoid roots with multiplicity greater then one.
+        In most cases we will assume \(x_{0} = 1\).
+        Hence, our elliptic curves will have equations of the form \(y^{2} = x^{3} + ax + b\).
+        In \Cref{fig:elliptic-curves-over-R}, we show two elliptic curves when \(\K = \rset\).
+        \subfile{../TikZ/Figure 1 - Example of elliptic curves over R}
+
+    Recall we are working with discrete fields, hence the curve will have a finite amount of point.
+        In more details, our elliptic curve \(\mathcal{C}\) will represent the set of point of 
+        the fieds such that its equation is satisfied. That is,
+        \[
+            \mathcal{C} = \set{(x, y) \in \K^{2}}[y^{2} = x^{3} + ax + b] \cup \Omega,
+        \]
+        where \(\Omega\) represents the point at infinity.
+
+    \paragraph{Sum of points of an elliptic curve}
+    Let \(\mathcal{C}\) be an elliptic curve, and let \(P, Q \in \mathcal{C}\).
+        We want to know what \(P + Q\) is.
+        Differently from what one may think, the addition of points over an elliptic curve is tricky.
+        Here, we present two techniques to apply under the proper conditions.
+        \begin{description}
+            \item [Rope rule:] to be used when \(P \ne \pm Q\),
+                consists in computing the line \(l\) passing through \(P\) and \(Q\),
+                intersecting \(l\) with the equation of the curve,
+                and once the system of equation is solved, 
+                consider the opposite of the point found\footnotemark.
+
+            \item [Tangent rule:] to be used when \(P = Q\),
+                consists in considering the tangent line to \(P\),
+                which we recall is 
+                \[
+                    \frac{\partial \ F}{\partial \ x}(x - x_{P}) + \frac{\partial \ F }{\partial \ y}(y - y_{P}) = 0
+                \],
+                intersecting it with the curve and,
+                once the system of equation is solved,
+                consider the opposite of the point this way found.
+        \end{description}
+        Below a the formulas to be used to compute the sum of two point.
+        \begin{description}
+            \item [\(P \ne \pm Q\):]
+                \[\begin{aligned}
+                    x_{P + Q} & = \left\lparen 
+                        \frac{y_{P} - y_{Q}}{x_{P} - x_{Q}}
+                    \right\rparen^{2} - x_{P} - x_{Q} \\
+                    y_{P + Q} & = \frac{y_{P} - y_{Q}}{x_{P} - x_{Q}}(x_{P} - x_{P + Q}) - y_{P}
+                \end{aligned}\]
+
+            \item [\(P = Q\):]
+                \[\begin{aligned}
+                    x_{P + Q} & = x_{2P} = \left\lparen
+                        \frac{3x_{P}^{2} + a}{2y_{P}}
+                        \right\rparen^{2} - 2x_{p} \\ 
+                    y_{P + Q} & = y_{2P} = -y_{P} + \frac{3x_{P}^{2} + a}{2y_{P}}(x_{P} - x_{2P})
+                \end{aligned}\]
+
+            \item [\(P = -Q\):] the point is \(\Omega\).
+        \end{description}
+
+    \footnotetext{The reason we consider the opposite of the point found,
+        has to do with the free group of divisors of the curve;
+        a topic that is far from our interests.}
+\end{document}
