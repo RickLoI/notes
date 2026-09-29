@@ -1,0 +1,13 @@
+\documentclass{subfiles}
+\begin{document}
+    Now that we know what elliptic curves are, 
+        we show how to implent the ElGamal algorithm using these special curves.
+        The idea is the following: we encode the message to send as some point \(R\) of 
+        the curve, which is computed starting from the message itself.
+        As it is easely understood, the strenght of this approach is that,
+        even if the attacker gets \(R\), retriving the original point and consequentially the message
+        is almost impossible.
+
+    \autoref{proc:ElGamal-on-elliptic-curves} shows the various steps of the algorithm.
+        \subfile{../TikZ/Procedure - ElGamal on elliptic curves}
+\end{document}

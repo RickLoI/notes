@@ -1,0 +1,30 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{Elliptic-ElGamal()}\label{proc:ElGamal-on-elliptic-curves}
+        \nl Let $\T$ be a trusted third party. $\T$ chooses a prime \(p\),
+            and an elliptic curve \(\mathcal{C}\) over \(\gf(p)\),
+            fixing a point \(\gamma \in \mathcal{C}\).
+            \DontPrintSemicolon\;
+
+        \nl Both $\A$ and $\B$ choose their private keys, let this be \(a\) and \(b\) respectively,
+            and compute thei public keys, respectively $\alpha = a * \gamma$ and $\beta = b * \gamma$.
+            \DontPrintSemicolon\;
+        
+        \nl If $m$ is the message $\A$ wants to send, $\A$ chooses a point $M \in \mathcal{C}$,
+            such that the second component of $M$ is $m$. Then,
+            computes $\kappa_{AB} = a * \beta$ and transmits $c = \kappa_{AB} + M$ to $B$.
+            \DontPrintSemicolon\;
+
+        \nl Upon receiving $c$, $\B$ first computes $\kappa_{AB} = b * \alpha$,
+            retrieves $M$, and consequentially $m$, by computing $M = -\kappa_{AB} + c$.
+            Recall that $-\kappa_{AB}$ is equalt to $\kappa_{AB}$ with the $y$ coordinate changed in sign.
+            \DontPrintSemicolon\;
+
+        \tcc{On the attacker side}
+        \nl $\E$ has no idea of neither $a$ nor $b$,
+            hence is only option is that of computing all possible multiples of $\gamma$,
+            hoping to find either $\alpha$ or $\beta$.
+
+    \end{procedure}
+\end{document}
