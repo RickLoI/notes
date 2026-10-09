@@ -1,0 +1,22 @@
+\documentclass{subfiles}
+\begin{document}
+    Let \(m\) be the document \(\A\) produced, 
+        of which we want to garantee the autenticity.
+        Since signing the whole document is tedious, and most of the time useless,
+        we can simply sign part of it, and to do so we consider the hash \(h(m)\) of the document.
+        Here, \(h\) is what is called an hash function.
+
+    Although the literature provides a pletora of things to say about hash functions,
+        what matters here is simply understanding that an hash functions 
+        maps elements from a certain universe \(U\) (e.g. the set of all possible messages),
+        to the set \(\set{0, \ldots, m}\), for some integer \(m\).
+        The important thing is that the number of collisions, i.e.,
+        the number of elements of \(U\) such that the hash coicides,
+        is the lowest possible. Again, the literature provide us with several of such functions,
+        thus, here we can assume \(h\) one of such hash functions.
+
+    Back to the algorithm; besides computing the hash of \(m\),
+        the RSA algorithm proceed as described in \Cref{sec:RSA},
+        with the difference being that instead of cyphering \(m\), 
+        we cypher \(h(w)\).
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{DSA()}\label{proc:DSA}
+        \nl The trusted third party $\T$ chooses a prime $p$,
+            the ring $\gf(p)$ and a generator $\gamma \in \gf(p)$.
+            \DontPrintSemicolon\;
+
+        \nl $\A$ is asked to choose a private key $a$, 
+            and computes $\alpha = \gamma^{a}$, which represents their public key.
+            \DontPrintSemicolon\;
+
+        \nl Let $m$ be the document. $\A$ is asked to compute $h(m) \in \zset_{p - 1}$.
+            Additionally, they choose an invertible element $k \in \zset_{p - 1}$
+            and once found the inverse via the Extended Eucleadian algorithm,
+            computes the quantities:
+            $$\begin{gathered}
+                r \equiv \gamma^{k} \mod \\ 
+                s \equiv k^{-1} (h(m) + a * r) \mod[p - 1]
+            \end{gathered}$$
+            \DontPrintSemicolon\;
+        \tcc{The pair $(r, s)$ represents the signature}
+        
+        \nl To check $\A$'s ownership, $\T$ computes
+        $$
+            v = \gamma^{h(m)} \alpha^{r}
+        $$
+        If $v = r^{s}$ the signature is verified.
+        \DontPrintSemicolon\;
+        \tcc{The issue an attacker $\E$ has, is due to the fact that not knowing $a$,
+        it is highly likely that the pair $(r, s)$ they found, differ from $\A$'s one.}
+
+    \end{procedure}
+\end{document}
