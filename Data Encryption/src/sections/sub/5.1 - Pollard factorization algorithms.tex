@@ -1,0 +1,22 @@
+\documentclass{subfiles}
+\begin{document}
+    Named after the British mathematician John Pollard,
+        the two algorithms presented in this section allow,
+        under certain hypotesis, to find one of the prime factors of a composite integer \(n\).
+        
+    The first of the two algorithms we present is \emph{Pollard's \(p - 1\) factoring algorithm}.
+        The algorithm is based on the notion of \(B\)-smoothness,
+        which we define below.
+
+    \begin{definition*}[B-smoothness]
+        Let \(n\) be a composite integer, and let \(B\) a fixed bound.
+            We say \(n\) is \(B\)-smooth, if all the prime factors of \(n\) are less or equal to \(B\).
+    \end{definition*}
+    For instance, \(n = 60\) is \(5\)-smooth, since it's factors are \(2, 3, 2, 5\).
+
+    \subsubsection{Pollard \(p - 1\) factoring algorithm}
+    \subfile{../subsub/5.1.1 - Pollard p - 1 factoring algorithm}
+
+    \subsubsection{Pollard \(\rho\) algorithm}
+    \subfile{../subsub/5.1.2 - Pollard rho algorithm}
+\end{document}

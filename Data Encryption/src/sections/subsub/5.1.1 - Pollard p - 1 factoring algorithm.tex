@@ -1,0 +1,16 @@
+\documentclass{subfiles}
+\begin{document}
+    Assume \(B\) is a smoothness bound. Let \(Q\) be the quantity
+        \[
+            Q = \prod_{q \le B} q^{\floor{\sfrac{\ln n}{\ln q}}}
+        \]
+        where each \(q\) is a prime factor smaller or equal to \(B\).
+        It turns out that, if \(p\) is a prime factor of \(n\) and \(p - 1\) is \(B\)-smooth,
+        then \(p - 1 | Q\). That is, for some \(a\), \(a^{q} \equiv 1 \mod\).
+        That is, we find an \(a\) such that \(\gcd{a^{Q}, p} = 1\).
+        By which, if \(d = \gcd{a^{Q} - 1, n}\), then \(p | d\).
+
+    There is also the possibility by which \(d = n\), in which case the algorithm fails.
+        Though, the probability of this occurring lowers drastically if \(n\) is the product of at 
+        least two distinct large primes.
+\end{document}

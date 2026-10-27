@@ -1,0 +1,16 @@
+\documentclass{subfiles}
+\begin{document}
+    Let \(f : X \to X\) be a random function, where \(X\) is a finite set with \(n\) elements.
+        The idea behind Pollar's algorithms is very simple:
+        since \(X\) is finite, it must happen that after a certain amount of times,
+        \(f(x) = f(x')\), for some \(x, x' \in X\).
+        The expected number of iterations preceeding a collision is \(\sqrt{\sfrac{\pi n}{8}}\).
+
+    It is obvious that proceeding this way we will use a lot of space, 
+        since we will have to store each \(f_{x}\).
+        A much more efficient solution can be obtained by exploiting Floyds algorithm.
+        The idea is again very simple, at each iteration we only store the pair \((x_{i}, x_{2i})\)
+        until we find \(x_{i} = x_{2i} \mod\). For Pollard's algorithm we set \(x_{0} = 2,
+        x_{i + 1} = x_{i}^{2} + 1 \mod\). If it happens that \(1 < \gcd{x_{m} - x_{2m}, n} < n\),
+        then a non-trivial factor of \(n\) has been found.
+\end{document}
