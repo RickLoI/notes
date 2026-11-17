@@ -1,0 +1,16 @@
+\documentclass{subfiles}
+\begin{document}
+    Sometimes referred to as \gls{eca}, Lenstra algorithm is a way to test whether a number \(n\)
+        is prime, and eventually find a non-trivial divisor.
+        The idea is the following, we select a curve \(\C\) and a point \(P \in \C\),
+        and we compute all multiples of \(P\) up to a theshold \(B\), by reducing modulo \(n\).
+        If it happens that at a certain point we can't compute the inverse of the divisor,
+        then we'll have found a non-trivial divisor of \(n\).
+        More precisely, if \(v\) is the our non-invertible element, 
+        then \(\gcd(n, v)\) is the non-trivial divisor of \(n\).
+
+    It can happen that no non-invertible element is found,
+        in that case we should either choose a different point,
+        a different curve or both.
+\end{document}
+
