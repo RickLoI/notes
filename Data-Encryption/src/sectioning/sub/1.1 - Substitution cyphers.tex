@@ -1,0 +1,28 @@
+\documentclass{subfiles}
+\begin{document}
+    Another attempt to what is todays cryptography, 
+        is represented by substitution cyphers, for which we distinguish the mono-alphabetic ones,
+        and the poly-alphabetic ones. 
+
+    As the name suggests, mono-alphabetic substitution cyphers use a single alphabet to encypt the text.
+        The core idea, implemented in several different ways (see \emph{AtBash} and \emph{Ceasar's cypher}),
+        is that of replacing each character/symbol of the message with another of the same alphabet
+        accordig to some rule. 
+        For instance, Ceasar's cypher consists in replacing the occurrencies of the $n$-th character
+        in the alphabet, with the $(n + k)$-th, for some $k$.
+        AtBash itself can be seen as a Ceasar's cypher; in particular, one where $k = -2n$,
+        i.e., $a$ is replaced with $z, b$ with $v$, etc.
+
+    As it turns out, this kind of substitution cypher are weak.
+        The reason of that comes comes from a simple statistical analysis.
+        In particular, in each language, each character appears on average with a certain probability.
+        Hence, if while analyzing a text we see a character that usually as low probability,
+        appear very frequently, we can make a correspondence with the original symbol.
+        For instance, in proper Italian, $j, k, w, x$ and $y$ have a zero probability to appear 
+        in a text, thus, if we get a text where $w$ appears with a very high frequecy,
+        most likely it replaces either an $n, p$ or a $t$ which are the most frequently used characters.
+
+    Poly-alphabetic cyphers follow essentially the same principle, and are weak for the same reasons.
+        Purely for historic reasons we cite \emph{Alberti's cyphering disk} and \emph{Vigen{\`e}re's cypher}.
+
+\end{document}
