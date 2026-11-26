@@ -1,0 +1,41 @@
+\documentclass{subfiles}
+\begin{document}
+    Later in these notes, see \Cref{sec:EllipticCurvesAlgos},
+        we will consider some algorithms that are based on the notion of projective space.
+        Hence, for the sake of completeness, 
+        in this section we provide the reader with the fundamentals of this field.
+
+    Although it has a deep foundation in math,
+        the notion of projective space was first used in art to represent objects that are far from the viewer.
+        In simpler terms, a projective space is what we usually refer to as perspective.
+
+    More formally, a projective space over a field $\K$ is the set 
+        $$
+            \ps^{n} = \set[\vec{0} \ne \vec{v} \in \K^{n + 1}]{P = \gen{\vec{v}}} 
+        $$
+        where $\gen{\vec{v}} = \set[\lambda \in \K]{\lambda \vec{v}}$.
+        Let $P$ be a point in $\ps^{n}$.
+        We say that $P$ is in homogeneous coordinates, if its components $x_{0}, \ldots, x_{n}$ differ,
+        at most, by a proportionality factor. Viceversa, we sau that $P$ is given in non-homogeneous coordinates.
+        In the latter case $P$ can assume two forms:
+        $$
+            P = \begin{cases}
+                [1, \frac{x_{1}}{x_{0}}, \ldots, \frac{x_{n}}{x_{0}}], & \text{if } x_{0} \ne 0; \\ 
+                [0, x_{1}, \ldots, x_{n}], & \text{otherwise}.
+            \end{cases}
+        $$
+        To a point $P$ of the form $[1, \sfrac{x_{1}}{x_{0}}, \ldots, \sfrac{x_{n}}{n}]$,
+        we can associate a point $P(X, \ldots, Z)$ where $X = \sfrac{x_{1}}{x_{0}}, \cdots, Z = \sfrac{x_{n}}{x_{0}}$;
+        we call these points \emph{affine} (or proper) points. All non-affine points are called points at infinity. 
+
+    Now, let us consider what happens with polynomial in the projective space.
+        By the way $\ps^{n}$ is defined, we must have that given two point $P, Q$,
+        with $P$ and $Q$ proportional, the evaluation of a polynomial at $P$ and $Q$ gives the same
+        result, since $P$ and $Q$ represent the same point.
+        As it turns out, this is not the case unless the polynomial/function is homogeneous;
+        that is, each of the monomyals that compose it, have the same degree.
+
+
+    % TODO: section on elliptic curves.
+        
+\end{document}

@@ -4,7 +4,9 @@
 
 \usepackage{etextools}
 \usepackage{mathtools,amsfonts,amssymb}
+\usepackage{cleveref}
 \usepackage{subfiles}
+\usepackage{xfrac}
 \sloppy
 
 % Commands
@@ -12,6 +14,9 @@
 \newcommand\zset{\mathbb{Z}}
 \newcommand\K{\mathcal{K}}
 
+
 \DeclareMathOperator\gf{GF}
+\DeclareMathOperator\ps{\mathbb{P}}
 
 \newcommand\gen[1]{\langle #1 \rangle}
+\newcommand\set[2][]{\lbrace #2 \ifnotempty{#1}{\: | \: #1}{} \rbrace}
