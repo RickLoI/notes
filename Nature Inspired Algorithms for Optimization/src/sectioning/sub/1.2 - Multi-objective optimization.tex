@@ -1,0 +1,29 @@
+\documentclass{subfiles}
+\begin{document}
+    Let's now suppose that need to minimize (resp. maximize) more then a single cost funtion,
+        that is, we have an instance of a problem $(X, c_{1}, \ldots, c_{k})$.
+        An optimal solution would be an element $\vec{x}^{\mathrm{id}} \in X^{k}$
+        such that 
+        $$
+            x_{i}^{\mathrm{id}} = \min\limits_{x \in X} c_{i}(x)
+        $$
+        for $i = 0, \ldots, k$. The naive approach,
+        would be to define a \emph{fitness} function as linear combination of the cost functions.
+        That is, it would the define the function
+        $$
+            \mathrm{fit}(x) = \sum\limits_{n = 1}^{k} a_{i} c_{i}(x)
+        $$
+        where $a_{i}$ is the weight of the $i$-th objective.
+
+    The issue with this approach is that we would need a way to determine the weights,
+        and this task is non-trivial.
+
+    A better approach consists in the computation of the so-called \emph{Pareto} front.
+        Let $\vec{y}_{1}, \vec{y}_{2}$ be two solutions,
+        we say that $\vec{y}_{1}$ Pareto-dominates $\vec{y}_{2}$ if $\vec{y}_{1}$ is as good as $\vec{y}_{2}$,
+        and there exists an objective for which $\vec{y}_{1}$ is better then $\vec{y}_{2}$.
+        In this case we write $\vec{y}_{i} \succ \vec{y}_{2}$.
+        In \Cref{Proc:ParetoDomiComputation} we give the pseudo-code to compute the Pareto-dominance.
+        \subfile{../TikZ/Procedure - Pareto Dominance}
+
+\end{document}

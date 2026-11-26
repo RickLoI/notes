@@ -1,0 +1,19 @@
+\documentclass{subfiles}
+\begin{document}
+    \begin{procedure}
+        \caption{ParetoDominance($\vec{A}, \vec{B}$)}\label{Proc:ParetoDomiComputation}
+        $O \leftarrow \set{O_{1}, \ldots, O_{k}}$ 
+        \tcc{set of objectives}
+
+        flag $\leftarrow$ false \DontPrintSemicolon\;
+        \For{each objective $O_{i} \in O$}{
+            \uIf{ObjVal($O_{i}, A$) > ObjVal($O_{i}, B$)}{
+                flag $\leftarrow$ true
+            }
+            \ElseIf{ObjVal($O_{i}, B$) > ObjVal($O_{i}, A$)}{
+                \Return false
+            }
+        }
+        \Return flag
+   \end{procedure}
+\end{document}

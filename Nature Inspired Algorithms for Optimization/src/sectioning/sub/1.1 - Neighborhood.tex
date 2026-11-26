@@ -1,0 +1,18 @@
+\documentclass{subfiles}
+\begin{document}
+    Let $X$ be the domain of our problem, and let $x \in X$ be a solution.
+        It is very useful to define the so called \emph{neighborhood} $N(x)$ of $x$,
+        which represents the set of points in the proximity of $x$.
+        The idea behind the notion of neighborhood is simple:
+        since $x$ is a solution, all the surrounding points are solutions as well,
+        and there could be one that is better.
+
+    From the notion of neighborhood, we can derive the notion of local optimum as follows:
+        if $(X, c)$ is an instance of a problem, where $X$ is the domain of the problem,
+        and $c$ the const functions to minimize (resp. maximize), 
+        and $N(x)$ is the neighborhood of a solution $x$,
+        we say that $x$ is a local optimum if
+        $$
+            \forall x' \in N(x), c(x) \le c(x').
+        $$
+\end{document}
