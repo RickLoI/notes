@@ -2,10 +2,12 @@
 \author{Riccardo Lo Iacono}
 \institute{}
 
+% \addbibresource{./BibTeX/papers.bib}
+
 \usepackage{etextools}
 \usepackage[ruled]{algorithm2e}
 \usepackage{mathtools,amsfonts,amssymb}
 \usepackage{cleveref}
 \usepackage{subfiles}
 
-\newcommand\set[2][]{\left\lbrace #2 \ifnotempty{#1}{\middle #1} \right\rbrace}
+\newcommand\set[2][]{\left\lbrace #2 \ifnotempty{#1}{\middle #1}{} \right\rbrace}

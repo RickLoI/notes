@@ -1,0 +1,24 @@
+\documentclass{subfiles}
+\begin{document}
+    The first kind of optimization algorithms we consider are the so-called \emph{greedy algorithms}.
+        Although these differ for the problem they solve,
+        all greedy algorithms must follow the same structure, which we summarize below.
+        \begin{enumerate}
+            \item Let $X$ be the domain of our problem.
+                The algorithms must maintain a partition $\set{Y, W, Z}$ of $X$,
+                where $Y$ is the set of elements that are part of the final solution,
+                $W$ is the set of discarded elements and $Z$ that of elements yet to examine.
+
+            \item There cannot be backtracking; that is, 
+                we can't go back and modify the current solution,
+                i.e., we can remove elements from $Y$ and add some element of $W$.
+
+            \item The elements from $Z$ are choosed according to some greedy mechanism.
+                Meaning that an element is accepted only if it satisfies some local optimality criteria.
+        \end{enumerate}
+        Moreover, in general, the number of steps of a greedy algorithm is known.
+
+    \subsection{No Free Lunch Theorem}
+    \subfile{../sub/2.1 - NFLT}
+
+\end{document}
